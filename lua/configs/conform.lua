@@ -2,7 +2,8 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     css = { "prettierd" },
-    -- typescript = { { "prettierd", "eslint_d" } },
+    typescript = { "prettierd" },
+    javascript = { "prettierd" },
     html = { "prettierd" },
   },
 
