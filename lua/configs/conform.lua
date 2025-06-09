@@ -3,7 +3,9 @@ local options = {
     lua = { "stylua" },
     css = { "prettierd" },
     typescript = { "prettierd" },
+    typescriptreact = { "prettierd" },
     javascript = { "prettierd" },
+    javascriptreact = { "prettierd" },
     html = { "prettierd" },
   },
 
