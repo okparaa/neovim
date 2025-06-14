@@ -8,6 +8,7 @@ return {
     "markdown",
     "vim",
     "tsx",
+    "cpp",
     "html",
     "javascript",
     "javascriptreact",
