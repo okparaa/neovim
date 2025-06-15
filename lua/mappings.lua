@@ -30,3 +30,39 @@ local function wrap_quotes()
 end
 
 map("n", "<leader>q", wrap_quotes, { desc = "Wrap word in quotes" })
+
+-- =============================================
+-- TypeScript Tools Mappings (only for TS files)
+-- =============================================
+
+-- Create a new mappings table for TypeScript
+local ts_mappings = {
+  n = {
+    ["<leader>co"] = { "<cmd>TSToolsOrganizeImports<CR>", "Organize imports" },
+    ["<leader>cR"] = { "<cmd>TSToolsRenameFile<CR>", "Rename file" },
+    ["<leader>ci"] = { "<cmd>TSToolsAddMissingImports<CR>", "Add missing imports" },
+    ["<leader>cu"] = { "<cmd>TSToolsRemoveUnusedImports<CR>", "Remove unused imports" },
+    ["<leader>cF"] = { "<cmd>TSToolsFixAll<CR>", "Fix all" },
+  }
+}
+
+-- Function to set TS keymaps only for TS files
+local function set_ts_keymaps()
+  for mode, mode_mappings in pairs(ts_mappings) do
+    for key, mapping in pairs(mode_mappings) do
+      vim.keymap.set(
+        mode,
+        key,
+        mapping[1],
+        { desc = mapping[2], buffer = true }
+      )
+    end
+  end
+end
+
+-- Automatically set TS keymaps when opening TS files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "typescriptreact" },
+  callback = set_ts_keymaps,
+  desc = "Set TypeScript Tools keymaps"
+})

@@ -26,4 +26,15 @@ return {
       filters = { dotfiles = true }
     },
   },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    config = function()
+      -- Defer loading to ensure LSP config is ready
+      vim.schedule(function()
+        require("configs.lspconfig").setup_typescript_tools()
+      end)
+    end,
+  },
 }
