@@ -90,3 +90,20 @@ map("n", "<A-f>", "<cmd>tabnew | terminal<cr>i", { desc = "Open terminal in new 
 map("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select All" })
 map("i", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All" })
 map("v", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select All" })
+-- Expand or jump in snippets
+map({ "i", "s" }, "<c-k>", function()
+	require("luasnip").expand_or_jump()
+end, { silent = true })
+
+-- Jump backward in snippets
+map({ "i", "s" }, "<c-j>", function()
+	require("luasnip").jump(-1)
+end, { silent = true })
+
+-- Cycle through choice nodes
+map("i", "<c-l>", function()
+	require("luasnip.extras.select_choice")()
+end)
+
+-- Reload snippets
+map("n", "<leader><leader>s", "<cmd>LuaSnipUnloadCurrent<cr><cmd>LuaSnipLoad<cr>", { desc = "Reload snippets" })

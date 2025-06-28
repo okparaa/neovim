@@ -36,3 +36,6 @@ require("config.keymaps")
 
 -- Load plugins
 require("lazy").setup("plugins")
+
+require("plugins") -- Loads plugins/snippets.lua
+require("config.luasnip") -- Loads snippet config

@@ -462,7 +462,7 @@ return {
 					markdown = { "prettier" },
 				},
 				format_on_save = {
-					timeout_ms = 1000,
+					timeout_ms = 2000,
 					lsp_fallback = true,
 				},
 			})
@@ -506,6 +506,17 @@ return {
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			local cmp = require("cmp")
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		end,
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		build = "make install_jsregexp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
 	},
 }
