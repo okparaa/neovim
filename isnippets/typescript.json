@@ -1,0 +1,16 @@
+{
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+      "\t${3:// code}",
+      "}"
+    ],
+    "description": "Standard for loop"
+  },
+  "console log": {
+    "prefix": "log",
+    "body": ["console.log($(1))"],
+    "description": "console log correct"
+  }
+}
