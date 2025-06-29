@@ -8,7 +8,7 @@ end
 
 -- Telescope keymaps
 map("n", "<C-p>", "<cmd>Telescope find_files<cr>")
-map("n", "<C-r>", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>r", "<cmd>Telescope live_grep<cr>")
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>")
@@ -91,17 +91,17 @@ map("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select All" }
 map("i", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All" })
 map("v", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select All" })
 -- Expand or jump in snippets
-map({ "i", "s" }, "<c-k>", function()
+map({ "i", "s" }, "<C-k>", function()
 	require("luasnip").expand_or_jump()
 end, { silent = true })
 
 -- Jump backward in snippets
-map({ "i", "s" }, "<c-j>", function()
+map({ "i", "s" }, "<C-j>", function()
 	require("luasnip").jump(-1)
 end, { silent = true })
 
 -- Cycle through choice nodes
-map("i", "<c-l>", function()
+map("i", "<C-l>", function()
 	require("luasnip.extras.select_choice")()
 end)
 
