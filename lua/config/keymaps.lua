@@ -40,7 +40,7 @@ map("n", "<leader>ef", "<cmd>NvimTreeFindFile<cr>", { desc = "Reveal current fil
 -- Save file with Ctrl+S
 map("n", "<C-s>", "<cmd>w<cr>")
 -- map("i", "<C-s>", "<esc><cmd>w<cr>a")
-map("i", "<C-s>", "<esc>")
+map("i", "<C-s>", "<esc><cmd>w<cr>")
 
 -- Toggle line comment
 map({ "n", "v" }, "<leader>/", function()
