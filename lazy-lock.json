@@ -24,5 +24,6 @@
   "tailwindcss-intellisense": { "branch": "main", "commit": "ba50c1be161f4634efc0ce41d16c856c625b1163" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
-  "typescript.nvim": { "branch": "main", "commit": "4de85ef699d7e6010528dcfbddc2ed4c2c421467" }
+  "typescript.nvim": { "branch": "main", "commit": "4de85ef699d7e6010528dcfbddc2ed4c2c421467" },
+  "vim-matchup": { "branch": "master", "commit": "5456eaccf757606884ec1ac1ef3f564019973873" }
 }

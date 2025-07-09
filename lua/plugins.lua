@@ -30,26 +30,44 @@ return {
 		end,
 	},
 	-- LSP Configuration
-	{
+	--[[ {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
 		config = function()
 			-- Setup LSP servers
 			local lspconfig = require("lspconfig")
-			lspconfig.emmet_language_server.setup({
-				filetypes = {
-					"css",
-					"html",
-					"javascript",
-					"javascriptreact",
-					"typescriptreact",
-				},
-			})
 			-- TypeScript setup
 			lspconfig.ts_ls.setup({
 				on_attach = function(client, _)
 					client.server_capabilities.documentFormattingProvider = false
 				end,
+				filetypes = {
+					"typescript",
+					"javascript",
+					"typescriptreact",
+					"javascriptreact",
+				},
+				init_options = {
+					preferences = {
+						includeCompletionsForModuleExports = true,
+						jsxAttributeCompletionStyle = "auto", -- Essential for React props
+						allowTextChangesInNewFiles = true,
+					},
+					tsserver = {
+						experimental = {
+							enableProjectDiagnostics = true,
+						},
+					},
+				},
+			})
+
+			lspconfig.emmet_language_server.setup({
+				filetypes = {
+					"css",
+					"html",
+					"javascriptreact",
+					"typescriptreact",
+				},
 			})
 			-- Tailwind CSS setup
 			lspconfig.tailwindcss.setup({
@@ -69,7 +87,7 @@ return {
 				},
 			})
 		end,
-	},
+	}, ]]
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -113,24 +131,6 @@ return {
 							})
 						end
 						-- Keymaps for TS/JS specific features
-						vim.keymap.set(
-							"n",
-							"<leader>ai",
-							"<cmd>TypescriptAddMissingImports<CR>",
-							{ buffer = bufnr, desc = "Add missing imports" }
-						)
-						vim.keymap.set(
-							"n",
-							"<leader>ru",
-							"<cmd>TypescriptRemoveUnused<CR>",
-							{ buffer = bufnr, desc = "Remove unused imports" }
-						)
-						vim.keymap.set(
-							"n",
-							"<leader>oi",
-							"<cmd>TypescriptOrganizeImports<CR>",
-							{ buffer = bufnr, desc = "Organize imports" }
-						)
 					end,
 					settings = {
 						typescript = {
@@ -156,7 +156,12 @@ return {
 							},
 						},
 					},
-					root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".eslintrc.json", ".git"),
+				},
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				settings = {
+					completions = {
+						completeFunctionCalls = true,
+					},
 				},
 			})
 			-- Lua LSP configuration
@@ -275,6 +280,7 @@ return {
 					disable = {},
 					additional_vim_regex_highlighting = false,
 				},
+				matchup = { enable = true },
 				-- Important: Explicitly enable for filetypes
 				filetype = {
 					enable = true,
@@ -512,9 +518,6 @@ return {
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 		build = "make install_jsregexp",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-		},
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load()
 		end,

@@ -21,11 +21,10 @@ map("n", "K", vim.lsp.buf.hover)
 map("n", "<leader>ca", vim.lsp.buf.code_action)
 map("n", "<leader>rn", vim.lsp.buf.rename)
 
--- Formatting
-map("n", "<leader>f", function()
-	vim.lsp.buf.format({ async = true })
-end)
-
+--[[ map("n", "<leader>ai", "<cmd>TypescriptAddMissingImports<CR>", { buffer = vim.lsp.buf, desc = "Add missing imports" })
+map("n", "<leader>ru", "<cmd>TypescriptRemoveUnused<CR>", { buffer = vim.lsp.buf, desc = "Remove unused imports" })
+map("n", "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>", { buffer = vim.lsp.buf, desc = "Organize imports" })
+ ]]
 -- Diagnostics
 map("n", "[d", vim.diagnostic.goto_prev)
 map("n", "]d", vim.diagnostic.goto_next)
@@ -33,7 +32,7 @@ map("n", "<C-d>", vim.diagnostic.open_float)
 
 -- Explorer
 map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>")
-map("n", "<leader>E", "<cmd>NvimTreeFocus<cr>")
+map("n", "<leader>e", "<cmd>NvimTreeFocus<cr>")
 map("n", "<leader>er", "<cmd>NvimTreeRefresh<cr>", { desc = "Refresh file tree" })
 map("n", "<leader>ef", "<cmd>NvimTreeFindFile<cr>", { desc = "Reveal current file in tree" })
 
@@ -90,6 +89,7 @@ map("n", "<A-f>", "<cmd>tabnew | terminal<cr>i", { desc = "Open terminal in new 
 map("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select All" })
 map("i", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All" })
 map("v", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select All" })
+
 -- Expand or jump in snippets
 map({ "i", "s" }, "<C-k>", function()
 	require("luasnip").expand_or_jump()
@@ -105,5 +105,6 @@ map("i", "<C-l>", function()
 	require("luasnip.extras.select_choice")()
 end)
 
+map("n", "<C-w>", ":bd<CR>", { noremap = true, silent = true })
 -- Reload snippets
-map("n", "<leader><leader>s", "<cmd>LuaSnipUnloadCurrent<cr><cmd>LuaSnipLoad<cr>", { desc = "Reload snippets" })
+map("n", "<leader>sr", "<cmd>LuaSnipUnloadCurrent<cr><cmd>LuaSnipLoad<cr>", { desc = "Reload snippets" })
