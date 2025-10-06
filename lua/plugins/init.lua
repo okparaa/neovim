@@ -15,4 +15,5 @@ return {
 	{ import = "plugins.luasnip" },
 	{ import = "plugins.tailwind" },
 	{ import = "plugins.whichkey" },
+	{ import = "plugins.alpha" },
 }
