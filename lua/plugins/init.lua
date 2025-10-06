@@ -1,0 +1,18 @@
+return {
+	{ import = "plugins.tokyonight" },
+	{ import = "plugins.mason" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.cmp" },
+	{ import = "plugins.treesitter" },
+	{ import = "plugins.telescope" },
+	{ import = "plugins.autopairs" },
+	{ import = "plugins.lualine" },
+	{ import = "plugins.bufferline" },
+	{ import = "plugins.nvim-tree" },
+	{ import = "plugins.comments" },
+	{ import = "plugins.conform" },
+	{ import = "plugins.lint" },
+	{ import = "plugins.luasnip" },
+	{ import = "plugins.tailwind" },
+	{ import = "plugins.whichkey" },
+}
