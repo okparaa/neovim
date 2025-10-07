@@ -5,7 +5,7 @@ return {
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
 
-		-- OKPARA ASCII Art Banner
+		-- Art Banner
 		dashboard.section.header.val = {
 			"          .:'       ",
 			"      __ :'__       ",
@@ -14,6 +14,16 @@ return {
 			"  :_________:       ",
 			"   :_________`-;    ",
 			"    `.__.-.__.'     ",
+		}
+
+		-- Set menu buttons
+		dashboard.section.buttons.val = {
+			dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
+			dashboard.button("f", "󰊄  Find File", ":Telescope find_files<CR>"),
+			dashboard.button("r", "  Recent Files", ":Telescope oldfiles<CR>"),
+			dashboard.button("t", "󰈬  Find Text", ":Telescope live_grep<CR>"),
+			dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua<CR>"),
+			dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 		}
 
 		-- Footer with plugin stats
