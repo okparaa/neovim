@@ -45,7 +45,7 @@ map("n", "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
 map("i", "<C-s>", "<esc><cmd>w<cr>", { desc = "Save file" })
 
 -- Toggle line/block comment
-map({ "n", "v" }, "<C-/>", function()
+map({ "n", "v" }, "<C-_>", function()
 	require("Comment.api").toggle.linewise.current()
 end, { desc = "Toggle comment" })
 
