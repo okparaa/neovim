@@ -11,6 +11,10 @@ return {
 			enable_autosnippets = true,
 		})
 
+		require("luasnip.loaders.from_lua").lazy_load({
+			paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
+		})
+
 		vim.keymap.set({ "i", "s" }, "<C-l>", function()
 			if ls.expand_or_jumpable() then
 				ls.expand_or_jump()

@@ -10,18 +10,18 @@ local terminal = require("config.terminal")
 
 -- Telescope
 map("n", "<C-p>", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
-map("n", "<leader>r", "<cmd>Telescope live_grep<cr>", { desc = "Ripgrep search" })
+map("n", "<C-f>", "<cmd>Telescope live_grep<cr>", { desc = "Ripgrep search" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffer" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Find help" })
 map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { desc = "Find references" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { desc = "Find diagnostics" })
 
 -- LSP
-map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-map("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
+map("n", "<A-d>", vim.lsp.buf.definition, { desc = "Go to definition" })
+map("n", "<A-r>", vim.lsp.buf.references, { desc = "Go to references" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+-- map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 
 -- Diagnostics
 map("n", "[d", function()
@@ -36,9 +36,9 @@ map("n", "<C-d>", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 
 -- Explorer
 map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<cr>", { desc = "Focus file explorer" })
+map("n", "<A-e>", "<cmd>NvimTreeFocus<cr>", { desc = "Focus file explorer" })
 map("n", "<leader>er", "<cmd>NvimTreeRefresh<cr>", { desc = "Refresh file tree" })
-map("n", "<leader>ef", "<cmd>NvimTreeFindFile<cr>", { desc = "Reveal current file in tree" })
+map("n", "<C-b>", "<cmd>NvimTreeFindFile<cr>", { desc = "Reveal current file in tree" })
 
 -- Save file
 map("n", "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
@@ -75,6 +75,7 @@ map("n", "<A-f>", "<cmd>tabnew | terminal<cr>i", { desc = "Open terminal in new 
 map("n", "<C-a>", "ggVG", { desc = "Select All" })
 map("i", "<C-a>", "<Esc>ggVG", { desc = "Select All" })
 map("v", "<C-a>", "ggVG", { desc = "Select All" })
+map("n", "<C-c>", 'ggVG"+y', { desc = "Select all & copy" })
 
 -- Close buffer
-map("n", "<C-w>", ":bd<CR>", { desc = "Close buffer" })
+map("n", "<C-x>", ":bd<CR>", { desc = "Close buffer" })
