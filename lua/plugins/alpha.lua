@@ -22,8 +22,8 @@ return {
 			dashboard.button("f", "󰊄  Find File", ":Telescope find_files<CR>"),
 			dashboard.button("r", "  Recent Files", ":Telescope oldfiles<CR>"),
 			dashboard.button("t", "󰈬  Find Text", ":Telescope live_grep<CR>"),
-			dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua<CR>"),
-			dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+			dashboard.button("c", "  Config", ":e ~/.config/nvim/init.lua<CR>"),
+			dashboard.button("q", "  Quit", ":qa<CR>"),
 		}
 
 		-- Footer with plugin stats

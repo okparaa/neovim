@@ -51,11 +51,11 @@ return {
 		})
 
 		-- Emmet
-		vim.lsp.config("emmet_ls", {
+		vim.lsp.config("emmet_ls", { -- 🚨 String: 'emmet_ls'
+			cmd = { "emmet-language-server", "--stdio" },
+			filetypes = { "css", "html", "javascriptreact", "typescriptreact" },
 			capabilities = capabilities,
-			filetypes = { "html", "css", "javascriptreact", "typescriptreact" },
 		})
-
 		-- Lua
 		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,

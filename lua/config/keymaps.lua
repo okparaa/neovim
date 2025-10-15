@@ -79,3 +79,7 @@ map("n", "<C-c>", 'ggVG"+y', { desc = "Select all & copy" })
 
 -- Close buffer
 map("n", "<C-x>", ":bd<CR>", { desc = "Close buffer" })
+
+-- Key mappings for terminal and navigation
+vim.api.nvim_set_keymap("n", "<leader>tv", ":vert term<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true }) -- Escape to Normal mode in terminal
